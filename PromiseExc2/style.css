@@ -1,0 +1,27 @@
+/* Style for the user list */
+#users-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Style for each user item */
+#users-list li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style for the user avatar */
+#users-list li img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Style for the user name and email */
+#users-list li span {
+  font-size: 16px;
+}
