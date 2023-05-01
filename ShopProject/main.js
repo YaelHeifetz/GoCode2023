@@ -1,74 +1,86 @@
-const ProductFilter = ({ title, filters, sorts }) => {
-    return (
-      <nav className="product-filter">
-        <h1>{title}</h1>
-  
-        <div className="sort">
-          {filters.map((filter) => (
-            <div key={filter.label} className="collection-sort">
-              <label>{filter.label}:</label>
-              <select>
-                {filter.options.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          ))}
-  
-          {sorts.map((sort) => (
-            <div key={sort.label} className="collection-sort">
-              <label>{sort.label}:</label>
-              <select>
-                {sort.options.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          ))}
-        </div>
-      </nav>
-    );
-  };
-  
-  const filters = [
-    {
-      label: "Filter by",
-      options: [
-        { label: "All Jackets", value: "/" },
-        { label: "2016", value: "/" },
-        { label: "jacket", value: "/" },
-        { label: "Jackets", value: "/" },
-        { label: "layers", value: "/" },
-        { label: "Obermeyer", value: "/" },
-        { label: "Roxy", value: "/" },
-        { label: "womens", value: "/" },
-      ],
-    },
-  ];
-  
-  const sorts = [
-    {
-      label: "Sort by",
-      options: [
-        { label: "Featured", value: "/" },
-        { label: "Best Selling", value: "/" },
-        { label: "Alphabetically, A-Z", value: "/" },
-        { label: "Alphabetically, Z-A", value: "/" },
-        { label: "Price, low to high", value: "/" },
-        { label: "Price, high to low", value: "/" },
-        { label: "Date, new to old", value: "/" },
-        { label: "Date, old to new", value: "/" },
-      ],
-    },
-  ];
-  
-  ReactDOM.render(
-    <ProductFilter title="Jackets" filters={filters} sorts={sorts} />,
-    document.getElementById("root")
+const Nav = () => {
+  return (
+    <nav className="product-filter">
+      <h1>Jackets</h1>
+      <div className="sort">
+        <SortBy />
+        <FilterBy />
+      </div>
+    </nav>
   );
-  
-  
+};
+
+const FilterBy = () => {
+  return (
+    <div className="collection-sort">
+      <label>Filter by:</label>
+      <select>
+        <option value="/">All Jackets</option>
+        <option value="/">2016</option>
+        <option value="/">jacket</option>
+        <option value="/">Jackets</option>
+        <option value="/">layers</option>
+        <option value="/">Obermeyer</option>
+        <option value="/">Roxy</option>
+        <option value="/">womens</option>
+      </select>
+    </div>
+  );
+};
+const SortBy = () => {
+  return (
+    <div className="collection-sort">
+      <label>Sort by:</label>
+      <select>
+        <option value="/">Featured</option>
+        <option value="/">Best Selling</option>
+        <option value="/">Alphabetically, A-Z</option>
+        <option value="/">Alphabetically, Z-A</option>
+        <option value="/">Price, low to high</option>
+        <option value="/">Price, high to low</option>
+        <option value="/">Date, new to old</option>
+        <option value="/">Date, old to new</option>
+      </select>
+    </div>
+  );
+};
+const ProductsSection = () => {
+  return (
+    <section className="products">
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+    </section>
+  );
+};
+
+const Product = () => {
+  return (
+    <div className="product-card">
+      <div className="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0938/8938/products/10231100205_1_1315x1800_300_CMYK_1024x1024.jpeg?v=1445623369" />
+      </div>
+      <div className="product-info">
+        <h5>Winter Jacket</h5>
+        <h6>$99.99</h6>
+      </div>
+    </div>
+  );
+};
+
+const Main = () => {
+  return (
+    <div>
+      <Nav/>
+      <ProductsSection />
+    </div>
+  )
+}
+ReactDOM.render(<Main />, document.getElementById("app"));
